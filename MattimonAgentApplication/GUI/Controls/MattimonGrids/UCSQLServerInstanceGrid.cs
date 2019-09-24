@@ -209,13 +209,10 @@ namespace MattimonAgentApplication.GUI.Controls.MattimonGrids
         /// <param name="dataMember">Should be the name of the most top DataTable. Keep it null to set the first table in the dataset tables</param>
         public void SetDataSet(DataSet dataSet, bool autoGenerateColumns, string dataMember = null)
         {
-
-
            if (autoGenerateColumns) dataGridView.Columns.Clear();
             
             dataGridView.DataBindingComplete += (s, e) =>
             {
-               
                 foreach (DataGridViewColumn c in dataGridView.Columns)
                 {
                     if (c.HeaderText == "servername")
@@ -288,9 +285,6 @@ namespace MattimonAgentApplication.GUI.Controls.MattimonGrids
                     FlatStyle = FlatStyle.Standard,
                     Visible = false,
                 });
-
-
-                
 
 
                 dataGridView.Columns["pk"].Visible = false;
