@@ -1,0 +1,403 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{02492320-AFF5-4BE1-B26F-2645C3FACF80}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MattimonAgentApplication</RootNamespace>
+    <AssemblyName>MattimonAgentApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>MattimonAgentApplication.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Production|AnyCPU'">
+    <OutputPath>bin\Production\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Develop|AnyCPU'">
+    <OutputPath>bin\Develop\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.2.1.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MattimonUpdateService\bin\Debug\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.109.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.109.2\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.109.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.109.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.109.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.109.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormBackgroundWorker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBackgroundWorker.Designer.cs">
+      <DependentUpon>FormBackgroundWorker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDashboard.Designer.cs">
+      <DependentUpon>FormDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDashboard.ServiceHandling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDashboard.SQLServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDashboard.WebRequests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormError.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormError.Designer.cs">
+      <DependentUpon>FormError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\BitscoreForms\BitscoreForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\BitscoreForms\BitscoreForm.Snap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\BitscoreForms\BitscoreMessageBox.cs" />
+    <Compile Include="GUI\BitscoreForms\Controls\BorderlessFlatButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\BitscoreForms\Controls\ControlBoxButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FormDashboard.Win32.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\BitscoreForms\InternalMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\BitscoreForms\InternalMessageBox.Designer.cs">
+      <DependentUpon>InternalMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Controls\ButtonCell.cs" />
+    <Compile Include="GUI\Controls\MattimonGrids\UCSQLServerInstanceGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\MattimonGrids\UCSQLServerInstanceGrid.DataGridEventHandlers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\MattimonGrids\UCSQLServerInstanceGrid.Designer.cs">
+      <DependentUpon>UCSQLServerInstanceGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Controls\UCMattimonGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\UCMattimonGrid.Designer.cs">
+      <DependentUpon>UCMattimonGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Controls\UCMattimonServicesGrid.DataGridEventHandlers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\ControlBoxButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\FlatButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\UCMattimonServicesGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\UCMattimonServicesGrid.Designer.cs">
+      <DependentUpon>UCMattimonServicesGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Events\DeleteInstanceClickEventArgs.cs" />
+    <Compile Include="GUI\Events\ServiceStartChangedEventArgs.cs" />
+    <Compile Include="GUI\Events\ServiceStateChangedEventArgs.cs" />
+    <Compile Include="GUI\Extensions\FormExtensions.cs" />
+    <Compile Include="GUI\Extensions\ImageExtensions.cs" />
+    <Compile Include="MattimonAgentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MattimonAgentForm.Designer.cs">
+      <DependentUpon>MattimonAgentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQLServerInstanceDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SQLServerInstanceDialog.Designer.cs">
+      <DependentUpon>SQLServerInstanceDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SQLServerInstanceDialog.SQLServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Static\UserEndErrorMessages.cs" />
+    <Compile Include="Tools\ExceptionHelper.cs" />
+    <EmbeddedResource Include="FormBackgroundWorker.resx">
+      <DependentUpon>FormBackgroundWorker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDashboard.resx">
+      <DependentUpon>FormDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormError.resx">
+      <DependentUpon>FormError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\BitscoreForms\InternalMessageBox.resx">
+      <DependentUpon>InternalMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Controls\MattimonGrids\UCSQLServerInstanceGrid.resx">
+      <DependentUpon>UCSQLServerInstanceGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Controls\UCMattimonGrid.resx">
+      <DependentUpon>UCMattimonGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Controls\UCMattimonServicesGrid.resx">
+      <DependentUpon>UCMattimonServicesGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MattimonAgentForm.resx">
+      <DependentUpon>MattimonAgentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SQLServerInstanceDialog.resx">
+      <DependentUpon>SQLServerInstanceDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.Develop.config">
+      <DependentUpon>App.config</DependentUpon>
+    </None>
+    <None Include="app.manifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="App.Production.config">
+      <DependentUpon>App.config</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MattimonAgentLibrary\MattimonAgentLibrary.csproj">
+      <Project>{1089e7d1-72f0-4f8c-8941-9caad4342075}</Project>
+      <Name>MattimonAgentLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MattimonAgentService\MattimonAgentService.csproj">
+      <Project>{e7574edb-fcc0-419d-96b5-83cfd1045565}</Project>
+      <Name>MattimonAgentService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MattimonEventLogService\MattimonEventLogService.csproj">
+      <Project>{19a7cd10-90a2-438c-823d-f341f5b9cbd1}</Project>
+      <Name>MattimonEventLogService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MattimonFramework\MattimonFramework.csproj">
+      <Project>{1352d697-ac81-4978-bbca-66d462083b13}</Project>
+      <Name>MattimonFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MattimonSQLite\MattimonSQLite.csproj">
+      <Project>{94e0eb89-ce31-4e5e-a81d-d05696c5f9cf}</Project>
+      <Name>MattimonSQLite</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MattimonSQLServerService\MattimonSQLServerService.csproj">
+      <Project>{abbc91c5-4dd9-4a89-a595-09507b509c34}</Project>
+      <Name>MattimonSQLServerService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MattimonUpdateService\MattimonUpdateService.csproj">
+      <Project>{34285a23-587e-4b34-a98d-326fc54d918c}</Project>
+      <Name>MattimonUpdateService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Uninstall\Uninstall.csproj">
+      <Project>{621f17b5-2da3-4975-9d47-44f70d35a82a}</Project>
+      <Name>Uninstall</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\loading-large.gif" />
+    <None Include="Resources\bitscore-icon-64.ico" />
+    <None Include="Resources\mattimon_banner_resize.png" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\close_white.png" />
+    <None Include="Resources\close16.png" />
+    <None Include="Resources\close16_thick.png" />
+    <None Include="Resources\close16_thick_white.png" />
+    <None Include="Resources\close16_white.png" />
+    <None Include="Resources\close32.png" />
+    <None Include="Resources\close32_thiner.png" />
+    <None Include="Resources\close32_thiner_white.png" />
+    <None Include="Resources\close32_white.png" />
+    <None Include="Resources\maximize.png" />
+    <None Include="Resources\maximize_white.png" />
+    <None Include="Resources\maximize16.png" />
+    <None Include="Resources\maximize16_white.png" />
+    <None Include="Resources\maximize32.png" />
+    <None Include="Resources\maximize32_thiner.png" />
+    <None Include="Resources\maximize32_thiner_white.png" />
+    <None Include="Resources\maximize32_white.png" />
+    <None Include="Resources\minimize.png" />
+    <None Include="Resources\minimize_centered.png" />
+    <None Include="Resources\minimize_centered_white.png" />
+    <None Include="Resources\minimize_white.png" />
+    <None Include="Resources\minimize16.png" />
+    <None Include="Resources\minimize16_centered_thick.png" />
+    <None Include="Resources\minimize16_centered_thick_white.png" />
+    <None Include="Resources\minimize16_centered_white.png" />
+    <None Include="Resources\minimize16_thick.png" />
+    <None Include="Resources\minimize16_thick_centered_white.png" />
+    <None Include="Resources\minimize16_thick_white.png" />
+    <None Include="Resources\minimize16_white.png" />
+    <None Include="Resources\minimize32.png" />
+    <None Include="Resources\minimize32_centered_thiner.png" />
+    <None Include="Resources\minimize32_centered_thiner_white.png" />
+    <None Include="Resources\minimize32_thiner.png" />
+    <None Include="Resources\minimize32_thiner_white.png" />
+    <None Include="Resources\minimize32_white.png" />
+    <None Include="Resources\restore.png" />
+    <None Include="Resources\restore_white.png" />
+    <None Include="Resources\restore16.png" />
+    <None Include="Resources\restore16_white.png" />
+    <None Include="Resources\restore32.png" />
+    <None Include="Resources\restore32_thiner.png" />
+    <None Include="Resources\restore32_thiner_white.png" />
+    <None Include="Resources\restore32_white.png" />
+    <None Include="Resources\dataicon-64.ico" />
+    <Content Include="x64\SQLite.Interop.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\SQLite.Interop.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.109.2\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.109.2\build\net46\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.109.2\build\net46\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.109.2\build\net46\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <UsingTask TaskName="TransformXml" AssemblyFile="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Web\Microsoft.Web.Publishing.Tasks.dll" />
+  <Target Name="App_config_AfterCompile" AfterTargets="AfterCompile" Condition="Exists('App.$(Configuration).config')">
+    <!--Generate transformed app config in the intermediate directory-->
+    <TransformXml Source="App.config" Destination="$(IntermediateOutputPath)$(TargetFileName).config" Transform="App.$(Configuration).config" />
+    <!--Force build process to use the transformed configuration file from now on.-->
+    <ItemGroup>
+      <AppConfigWithTargetPath Remove="App.config" />
+      <AppConfigWithTargetPath Include="$(IntermediateOutputPath)$(TargetFileName).config">
+        <TargetPath>$(TargetFileName).config</TargetPath>
+      </AppConfigWithTargetPath>
+    </ItemGroup>
+  </Target>
+  <!--Override After Publish to support ClickOnce AfterPublish. Target replaces the untransformed config file copied to the deployment directory with the transformed one.-->
+  <Target Name="App_config_AfterPublish" AfterTargets="AfterPublish" Condition="Exists('App.$(Configuration).config')">
+    <PropertyGroup>
+      <DeployedConfig>$(_DeploymentApplicationDir)$(TargetName)$(TargetExt).config$(_DeploymentFileMappingExtension)</DeployedConfig>
+    </PropertyGroup>
+    <!--Publish copies the untransformed App.config to deployment directory so overwrite it-->
+    <Copy Condition="Exists('$(DeployedConfig)')" SourceFiles="$(IntermediateOutputPath)$(TargetFileName).config" DestinationFiles="$(DeployedConfig)" />
+  </Target>
+</Project>
