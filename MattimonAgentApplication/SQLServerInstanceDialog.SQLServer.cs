@@ -428,7 +428,7 @@ namespace MattimonAgentApplication
 
                         try
                         {
-                            Invoke((MethodInvoker)delegate () { lblStatus.ForeColor = Color.FromArgb(100, 255, 100); });
+                            Invoke((MethodInvoker)delegate () { lblStatus.ForeColor = Color.FromArgb(34, 177, 76); });
                             Invoke((MethodInvoker)delegate () { lblStatus.Text = "Connection successful"; });
                         }
                         catch { }
